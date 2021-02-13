@@ -47,10 +47,13 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/api/", apiRouter);
 
-// throw 404 if URL not found
-app.all("*", function(req, res) {
-	return apiResponse.notFoundResponse(res, "Page not found");
-});
+//Route to react
+app.get('*', (req, res, next) => {
+	res.sendFile(join(__dirname, '../client/build/index.html'));
+  });
+
+
+
 
 app.use((err, req, res) => {
 	if(err.name == "UnauthorizedError"){
