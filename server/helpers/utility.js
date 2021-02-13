@@ -7,3 +7,18 @@ exports.randomNumber = function (length) {
 	}
 	return Number(text);
 };
+
+exports.getAuthenticatedUser = (req) =>{
+	let token;
+    if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
+         token = req.headers.authorization.split(' ')[1];
+    }else{
+        token = null;
+    }
+
+    return jwt.verify(token, process.env.JWT_SECRET, (err, user)=>{
+        if(err) throw err;
+		return user;
+
+	})
+}

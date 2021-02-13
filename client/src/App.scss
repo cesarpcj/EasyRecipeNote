@@ -1,0 +1,427 @@
+$pink-color : #F27392;
+$list-item-bg : #70b9a6;
+$home-color-1 : #fff;
+$home-color-2 : #5cc59d;
+$home-color-3 : #d1f2e6;
+$home-color-4 : #70b9a6;
+
+
+.App {
+  text-align: center;
+  background-color: $home-color-1;
+  min-height: 100vh;
+}
+
+h1::first-letter{
+  text-transform: capitalize;
+}
+
+.navRecipe{
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  background-color: $pink-color;
+  color: white;
+}
+.navHome{
+  display: flex;
+  justify-content: space-between;
+  height: 4rem;
+  padding: 10px 0;
+  // background-color: $home-color-1;
+  .btn{
+    border: 2px solid $home-color-1;
+    border-radius: 15px;
+    margin: 10px 20px;
+    padding: 10px 20px;
+    background-color: $home-color-4;
+    color: $home-color-1;
+    font-weight: 500;
+  }
+  a.btn{
+    text-decoration: none;
+  }
+
+  .search{
+    border-radius: 15px;
+    border: 0 solid $home-color-4;
+    margin: 10px 15px;
+    padding-left: 10px;
+    height: 2.6rem;
+    font-size: large;
+    font-weight: 100;
+    background-color: $home-color-4;
+    color: $home-color-1;
+    outline: none;
+  }
+}
+
+
+.categories{
+  width: 100vw;
+  display: flex;
+  overflow:auto;
+  padding: 20px 0 10px 12px;
+  .selected{
+    padding: 0 20px;
+    margin: 0 8px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 4px 1px $home-color-1;
+    border: 0px solid $home-color-1;
+    background-color: $home-color-1;
+    color: $home-color-4;
+    white-space: nowrap;
+    cursor: pointer;
+
+    p{
+      margin: 12px 0;
+      font-weight: 500;
+    }
+  }
+  .selectedGreen{
+    padding: 0 20px;
+    margin: 0 8px;
+    border-radius: 15px;
+    
+    border: 2px solid $home-color-1;
+    background-color: $home-color-4;
+    color: $home-color-1;
+    white-space: nowrap;
+    cursor: pointer;
+
+    p{
+      margin: 12px 0;
+      font-weight: 500;
+    }
+  }
+  .notSelected{
+    padding: 0 20px;
+    margin: 0 8px;
+    border-radius: 15px;
+    border: 0px solid rgb(172, 171, 171);
+    background-color: rgb(206, 205, 205);
+    color: rgb(172, 171, 171);
+    white-space: nowrap;
+    cursor: pointer;
+
+    p{
+      margin: 12px 0;
+      font-weight: 500;
+    }
+  }
+  .item{
+    padding: 0 20px;
+    margin: 0 8px;
+    border-radius: 15px;
+    border: 2px solid $home-color-4;
+    background-color: $home-color-1;
+    color: $home-color-4;
+    white-space: nowrap;
+    cursor: pointer;
+
+    p{
+      margin: 12px 0;
+      font-weight: 500;
+    }
+  }
+
+}
+
+.recipeList{
+  list-style: none;
+  width: 100%;
+  padding: 0px;
+  background-color: $home-color-1;
+  a {
+    text-decoration: none;
+  }
+  .item {
+    padding: 15px 30px;
+    border-style: solid; 
+    border-color: $home-color-4;
+    border-width: 1px 1px 5px 1px;
+    // border-bottom: 5px solid $home-color-4;
+    // border-right: 2px solid $home-color-4;
+    border-radius: 15px;
+    text-align: start;
+    margin: 10px 10px;
+    background-color: $home-color-1;
+
+    p{
+      margin: 0;
+    }
+    p:first-letter{
+      text-transform: capitalize;
+    }
+    .title{
+      font-weight: 500;
+      font-size: 18px;
+      color: rgb(40, 40, 40); 
+    }
+    .timePortion{
+      display: flex;
+      flex-direction: row;
+      font-weight: 500;
+      font-size: 14px;
+      color: darkslategray;
+      .unit{
+        display: flex;
+        width: 50%;
+      }  
+      p{
+        margin-top: 4px;
+        text-align: start;
+      }
+    }
+  }
+}
+
+.recipeView{
+  background-color: $home-color-4;
+  min-height: 100vh;
+
+  .header{
+    color: $home-color-1;
+    margin-bottom: 60px;
+    
+    .menu{
+      display: flex;
+      justify-content: space-between;
+      margin: 30px 10vw 60px;
+    }
+  }
+
+  .body{
+    // margin-left: 20px;
+    margin-top: -40px;
+    border-radius: 30px 30px 0 0;
+    background-color: $home-color-1;
+    min-height: 600px;
+    padding: 20px 20px 10px;
+    color:rgb(73, 66, 66);
+    font-weight: 500;
+    .info{
+      display: flex;
+      justify-content: space-evenly;
+      p{
+        margin: 0px 0;
+        font-size: small;
+      }
+    }
+    .menu{
+      display: flex;
+      justify-content: space-between;
+      margin: 30px 10vw 20px;
+      .selected{
+        border-bottom: 2px solid rgb(80, 75, 75);
+        
+      }
+      .notSelected{
+        cursor:pointer;
+        
+      }
+      // color: rgb(73, 66, 66);
+      // font-weight: 500;
+    }
+    ul{
+     
+      background-color: $home-color-1;
+      border-radius: 10px;
+      box-shadow: 1px 1px 6px rgb(163, 162, 162);
+      padding: 20px 40px;
+      
+      }
+  }
+}
+
+.ingredientItem{
+  display: flex;
+  justify-content: space-between;
+  // color: rgb(73, 66, 66);
+  // font-weight: 500;
+  p{
+    margin: 5px 0;
+  }
+  // background-color: $home-color-1;
+  // border-radius: 15px;
+  // box-shadow: 1px 1px 1px gray;
+  // padding: 0 20px;
+  // margin-bottom: 10px;
+}
+.ingredientEditItem{
+  display: flex;
+  justify-content: space-between;
+  // color: rgb(73, 66, 66);
+  // font-weight: 500;
+  p{
+    margin: 0;
+  }
+  background-color: $home-color-1;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px 1px gray;
+  padding: 10px 20px;
+  margin: 10px 0;
+}
+
+.steps{
+  text-align: justify;
+  white-space: pre-line;
+}
+
+.chosenName{
+  display: flex;
+  margin: 16px 0;
+  justify-content: center;
+  p{
+    margin: 0;
+  }
+}
+
+.qtyUnit{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.bigInput{
+  width: 280px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px inset rgb(203, 211, 209);
+  outline: none;
+  border: none;
+  text-align: center;
+}
+
+input:focus{
+  outline: none;
+  box-shadow: 0px 0px 3px 2px $home-color-4;
+}
+.mediumInput{
+  width: 220px;
+  height: 40px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 2px 1px gray;
+  outline: none;
+  border: 1px solid rgb(203, 211, 209);
+  text-align: center;
+}
+.smallInput{
+  width: 80px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 2px 1px gray;
+  outline: none;
+  border: 1px solid rgb(203, 211, 209);
+  text-align: center;
+}
+
+select{
+  padding-left: 15px;
+}
+
+.areaBox{
+  height: 250px;
+  width: 250px;
+  padding: 20px;
+  font-size: 16px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px inset rgb(203, 211, 209);
+  outline: none;
+  border: 1px solid rgb(203, 211, 209);
+  text-align: justify;
+}
+
+.addIngredient{
+  width: 220px;
+  height: 50px;
+  margin: 20px 0;
+  border-radius: 5px;
+  background-color: $home-color-4;
+  color: $home-color-1;
+  font-weight: 500;
+  border: none;
+}
+
+.login{
+  padding: 30px;
+  margin: 0 auto;
+  max-width: 300px;
+
+  .error{
+    color: red;
+  }
+  a{
+    text-decoration: none;
+    color: $home-color-4;
+  }
+  .title{
+    color: $home-color-2;
+    margin-top: 0px;
+    font-weight: 500;
+  }
+  h1{
+    margin: 70px;
+  }
+
+  p{
+    text-align: left;
+    margin-left: 10px;
+    
+  }
+
+  .link{
+    font-weight: 500;
+    font-size: small;
+    color: gray;
+  }
+  
+
+  form{
+    
+    input{
+      box-sizing: border-box;
+      padding: 0 20px;
+      height: 50px;
+      width: 100%;
+      margin: 0px auto 20px;
+      font-size: 16px;
+      background-color: #ddd;
+      border-style: none;
+      border-radius: 10px;
+      box-shadow: 0px 0x 1px 2px  rgb(118,118,118);
+    }
+
+    input:focus{
+      outline: none;
+      box-shadow: 0px 0px 3px 2px $home-color-4;
+
+      
+    }
+
+    button{
+      
+      height: 50px;
+      width: 300px;
+      background-color: $home-color-2;
+      color: $home-color-1;
+      border-width: 0;
+      padding: 0px;
+      border-style: none;
+      border-radius: 10px;
+      box-shadow: 0px 0x 1px 2px  rgb(118,118,118);
+
+    }
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
