@@ -1,7 +1,7 @@
 {
     "name": "easyrecipenote",
     "scripts": {
-      "start": "node ./server/server.js",
+      "start": "node ./bin/www",
       "postinstall": "cd client && npm i && npm run build && cd .. && cd server && npm i && cd .."
     }
 }
