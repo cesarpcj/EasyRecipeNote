@@ -38,13 +38,16 @@ if(process.env.NODE_ENV !== "test") {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(join(__dirname, '../client/build')));
 
 //To allow cross-origin requests
-app.use(cors());
+app.use(cors({
+    credentials: true,
+    origin: ['http://localhost:3000'] // <== this will be the URL of our React app (it will be running on port 3000)
+  }));
 
 //Route Prefixes
-app.use("/", indexRouter);
+//app.use("/", indexRouter);
 app.use("/api/", apiRouter);
 
 //Route to react
