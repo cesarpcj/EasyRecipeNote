@@ -7,6 +7,7 @@ var indexRouter = require("./routes/index");
 var apiRouter = require("./routes/api");
 var apiResponse = require("./helpers/apiResponse");
 var cors = require("cors");
+var serveFavicon = require('serve-favicon');
 
 // DB connection
 var MONGODB_URL = process.env.MONGODB_URL;
@@ -28,6 +29,8 @@ var db = mongoose.connection;
 var app = express();
 
 //don't show the log when it is test
+app.use(serveFavicon(join(__dirname, 'public', 'favicon.ico')));
+
 if(process.env.NODE_ENV !== "test") {
 	app.use(logger("dev"));
 }
