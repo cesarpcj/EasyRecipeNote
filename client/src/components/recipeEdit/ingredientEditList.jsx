@@ -5,8 +5,8 @@ export default function ingredientEditList(props) {
     return (
         <div>
             {props.ingredients.map(ingredient => {
-                return <div key={ingredient._id} className="ingredientEditItem">
-
+                return <div key={ingredient.name} className="ingredientEditItem">
+                            
                             <p>{ingredient.name}</p>
                             
                             <p>{ingredient.quantity} {ingredient.unit}</p>
