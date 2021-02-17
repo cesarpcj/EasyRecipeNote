@@ -6,7 +6,7 @@ import {fetchRecipes} from '../controller/recipesController';
 import {useHistory} from 'react-router-dom';
 
 export default function Home(props) {
-    const [category, setCategory] = useState("doce");
+    const [category, setCategory] = useState("All");
     const [recipes, setRecipes] = useState([]);
     const [term ,setTerm] = useState("");
     const history = useHistory();

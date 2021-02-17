@@ -59,7 +59,7 @@ router.post("/create", auth, (req, res, next)=>{
 })
 router.post("/delete/:recipeId", auth, (req, res, next)=>{
     
-    Recipe.findByIdAndDelete(req.params.recipeId)
+    Recipe.findOneAndDelete({_id : req.params.recipeId, user: req.user._id})
     .then((result) => {
         res.json({recipe: result,msg : "recipe deleted"})
     }).catch((err) => {

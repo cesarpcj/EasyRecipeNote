@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import {useParams, useHistory} from 'react-router-dom';
-import {fetchRecipeById, updateRecipe} from '../controller/recipesController';
+import {fetchRecipeById, updateRecipe, deleteRecipe} from '../controller/recipesController';
 import RecipeEditNav from '../components/recipeEdit/recipeEditNav';
 import EditBody from '../components/recipeEdit/EditBody';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
@@ -63,12 +63,21 @@ export default function EditView(props) {
             console.log(err);
         });
     }
+    const delRecipe =()=>{
+        return deleteRecipe(recipeId)
+        .then((result) => {
+            console.log(result);
+            history.push(`/`);
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
     return (
         <div className="recipeView">
             
             {<>
                 <div className="header">
-                    <RecipeEditNav cancelPath={`/recipe/${recipeId}`} submit={update}/>
+                    <RecipeEditNav cancelPath={`/recipe/${recipeId}`} submit={update} deleteRecipe={delRecipe} canDelete={true}/>
                     <form onSubmit={doNothing}>
                         <input
                             className="bigInput"
@@ -114,6 +123,7 @@ export default function EditView(props) {
                         </div>
                         
                     </div>
+                    
                     <RecipeMenu setOption={setOption} option={option}/>
                     <EditBody ingredients={ingredients} option={option} add={addIngredients} removeIngredients={removeIngredients} setSteps={setSteps} steps={steps} setNotes={setNotes} notes={notes}/>
                     

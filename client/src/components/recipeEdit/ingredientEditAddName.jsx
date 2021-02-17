@@ -18,7 +18,7 @@ export default function IngredientEditAddName(props) {
         
         if(value !== "") newArr = arr.filter(el => el.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(value.toLowerCase()))
         setSearchTerm(value);
-        setMatchedWords(newArr);
+        setMatchedWords(newArr || []);
     }
 
     const addName = (w) =>{
@@ -45,14 +45,18 @@ export default function IngredientEditAddName(props) {
                 </div> :
                 <>  
                     <form onSubmit={doNothing}>
-                        <input className="mediumInput" placeholder="search ingredient" value={searchTerm} type="text" onChange={(e)=> searchHandle(e)}/>
+                        <input className="mediumInput" placeholder="Search ingredient" value={searchTerm} type="text" onChange={(e)=> searchHandle(e)}/>
                     </form>
-                    <div>
-                        {matchedWords && matchedWords.map(word =>{
+                    {matchedWords.length > 0 && 
+                    <div className="nameList">
+                        {matchedWords.map(word =>{
                             
-                            return <p key={word} onClick={()=>addName(word)}>{word}</p>
+                            return <div className="nameItem" key={word} onClick={()=>addName(word)}>
+                               <p>{word}</p> 
+                                </div>
                         })}
                     </div>
+                    }
                 </>
             }
            

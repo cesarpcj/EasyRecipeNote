@@ -18,14 +18,18 @@ export default function EditBody(props) {
         setUnit("g");
     }
     return (
-        <div>
+        <div className="list">
             
             {props.option === "notes" && <IngredientAddSteps set={props.setNotes} text={props.notes}/>}
             {props.option === "steps" && <IngredientAddSteps set={props.setSteps} text={props.steps}/>} 
             {props.option === "ingredients" &&  (<>
-                <IngredientAddName setName={setName} name={name}/>
-                <IngredientAddQuantityUnit quantity={quantity} setQuantity={setQuantity} setUnit={setUnit} />
-                <button className="addIngredient" onClick={addIngredient}>Add Ingredient</button>
+                <IngredientAddName setName={setName} name={name}/> 
+                {name !== "" && 
+                    <>
+                    <IngredientAddQuantityUnit quantity={quantity} setQuantity={setQuantity} setUnit={setUnit} />
+                    <button  onClick={addIngredient}>Add Ingredient</button>
+                    </>
+                }
                 {props.ingredients.length > 0 && <IngredientEditList ingredients={props.ingredients} removeIngredients={props.removeIngredients}/>}
                 </>)}
             

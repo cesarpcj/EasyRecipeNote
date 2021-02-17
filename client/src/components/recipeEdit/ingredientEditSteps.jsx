@@ -6,7 +6,7 @@ export default function ingredientEditSteps(props) {
     }
     return (
         <form onSubmit={doNothing}>
-            <textarea className="areaBox" type="text" value={props.text} onChange={(e)=>props.set(e.target.value)}/>
+            <textarea  type="text" value={props.text} onChange={(e)=>props.set(e.target.value)}/>
         </form>
     )
 }

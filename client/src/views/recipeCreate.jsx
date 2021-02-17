@@ -13,7 +13,7 @@ export default function RecipeCreate(props) {
     
     const [option, setOption] = useState("ingredients");
     const [ingredients, setIngredients] = useState([]);
-    const [category, setCategory] = useState([]);
+    const [category, setCategory] = useState(["All"]);
     const [steps, setSteps] = useState("");
     const [notes, setNotes] = useState("");
     const [name, setName] = useState("");
@@ -58,7 +58,9 @@ export default function RecipeCreate(props) {
             
             {<>
                 <div className="header">
-                    <RecipeEditNav cancelPath={"/"} submit={create}/>
+                    <RecipeEditNav cancelPath={"/"} submit={create} canDelete={false}/>
+                    <p>Choose categories:</p>
+                    <RecipeCategoriesPick add={addCategory} remove={removeCategory} picked={category}/>
                     <form onSubmit={doNothing}>
                         <input
                             className="bigInput"
@@ -69,7 +71,6 @@ export default function RecipeCreate(props) {
                             onChange={e => setName(e.target.value)}
                         />
                     </form>
-                    <RecipeCategoriesPick add={addCategory} remove={removeCategory} picked={category}/>
                     
 
                 </div>

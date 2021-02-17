@@ -13,7 +13,7 @@ export default function RecipeMenuItem(props) {
     }, [props.option])
     return (
         <div className={classname} onClick={()=>{props.setOption(props.item)}}>
-            {props.item}
+            {props.item.toUpperCase()}
         </div>
     )
 }

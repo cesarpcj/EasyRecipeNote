@@ -71,4 +71,13 @@ const updateRecipe = (recipe, id) =>{
 
 }
 
-export {fetchRecipes, fetchRecipeById, createRecipe, updateRecipe};
+const deleteRecipe=(id)=>{
+    return base.post(`/delete/${id}`)
+    .then((result) => {
+        return Promise.resolve(result.data.msg)
+    }).catch((err) => {
+        return Promise.reject(err);
+    });
+}
+
+export {fetchRecipes, fetchRecipeById, createRecipe, updateRecipe, deleteRecipe};

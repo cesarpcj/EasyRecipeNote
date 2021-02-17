@@ -3,14 +3,17 @@ import CancelIcon from '@material-ui/icons/Cancel';
 
 export default function ingredientEditList(props) {
     return (
-        <div>
+        <div className="ingredientEditList">
             {props.ingredients.map(ingredient => {
                 return <div key={ingredient.name} className="ingredientEditItem">
                             
-                            <p>{ingredient.name}</p>
                             
-                            <p>{ingredient.quantity} {ingredient.unit}</p>
+                            <div className="text">
+                            <p className="name">{ingredient.name}</p>
+
+                            <p className="ing">{ingredient.quantity} {ingredient.unit}</p>
                                 
+                            </div>
                             <CancelIcon onClick={()=> props.removeIngredients(ingredient.name)}/>
                         </div>
             })}
