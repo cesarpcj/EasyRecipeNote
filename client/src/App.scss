@@ -194,6 +194,8 @@ h1::first-letter{
   width: 100%;
   padding: 0px;
   background-color: $home-color-1;
+  margin: 0 auto;
+  max-width: 500px;
   a {
     text-decoration: none;
   }
@@ -202,11 +204,10 @@ h1::first-letter{
     border-style: solid; 
     border-color: $home-color-4;
     border-width: 1px 1px 5px 1px;
-    // border-bottom: 5px solid $home-color-4;
-    // border-right: 2px solid $home-color-4;
     border-radius: 15px;
     text-align: start;
     margin: 10px 10px;
+    
     background-color: $home-color-1;
 
     p{
